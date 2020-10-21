@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+    <html>
+       <head>
+           <meta charset="utf-8" />
+           <title>simple BBS</title>
+       </head>
+  
+       <body>
+           <table border>
+              <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>WriteTime</th>
+                  <th>Message</th>
+             </tr>
+
+             <% @s.each do |a| %>
+                 <tr>
+                     <td><%= a.id %></td>
+                     <td><%= a.name %></td>
+                     <td><%= a.write_time %></td>
+                     <td><%= a.message %></td>
+                     <form method="post" action="del">
+                         <td><input type="submit" value="Delete"></td>
+                         <input type="hidden" name="id" value="<%= a.id %>">
+                         <input type="hidden" name="_method" value="delete">
+                     </form>
+                 </tr>
+             <% end %>
+
+             <form method="post" action="new">
+                 <tr>
+                     <td><input type="text" name="id"></td>
+                     <td><input type="text" name="name"></td>
+                     <td><input type="text" name="time"></td>
+                     <td><input type="text" name="message"></td>
+                     <td><input type="submit" value="Go"></td>
+                 </tr>
+             </form>
+
+         </table>
+     </body>
+   </html>

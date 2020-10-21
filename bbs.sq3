@@ -1,0 +1,6 @@
+create table writes (
+  id char(3) primary key,
+  name varchar(40) not null,
+  write_time varchar(20) not null,
+  message varchar(500) not null
+);
