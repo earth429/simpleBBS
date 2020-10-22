@@ -16,10 +16,17 @@ get '/'do
 end
 
 post '/new' do
+    time = Time.now
+    id_count = Write.select('id').last
+    if id_count == nil
+        id_count = 0
+    else
+        id_count.id += 1
+    end
     s = Write.new
-    s.id = params[:id]
+    s.id = id_count.id
     s.name = params[:name]
-    s.write_time = params[:time]
+    s.write_time = time
     s.message = params[:message]
     s.save
     redirect '/'
