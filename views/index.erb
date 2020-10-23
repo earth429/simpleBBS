@@ -6,36 +6,32 @@
        </head>
   
        <body>
-           <table border>
-              <tr>
-                  <th>ID</th>
-                  <th>Name</th>
-                  <th>WriteTime</th>
-                  <th>Message</th>
-             </tr>
+           <h1>simpleBBS</h1>
 
-             <% @s.each do |a| %>
-                 <tr>
-                     <td><%= a.id %></td>
-                     <td><%= a.name %></td>
-                     <td><%= a.write_time %></td>
-                     <td><%= a.message %></td>
-                     <form method="post" action="del">
-                         <td><input type="submit" value="Delete"></td>
-                         <input type="hidden" name="id" value="<%= a.id %>">
-                         <input type="hidden" name="_method" value="delete">
-                     </form>
-                 </tr>
-             <% end %>
+           <% @s.each do |a| %>
+               <form method="post" action="del">
+                   <p>
+                   <%= a.id %>
+                   <%= a.name %>
+                   <%= a.write_time %><br>
+                   <%= a.message %>
+                   <input type="submit" value="Delete">
+                   <input type="hidden" name="id" value="<%= a.id %>">
+                   <input type="hidden" name="_method" value="delete">
+                   </p>
+           </form>
+           <% end %>
 
-             <form method="post" action="new">
-                 <tr>
-                     <td><input type="text" name="name"></td>
-                     <td><input type="text" name="message"></td>
-                     <td><input type="submit" value="Go"></td>
-                 </tr>
-             </form>
+           <form method="post" action="new">
+               <input type="text" name="name">
+               <textarea required type="text" name="message" cols="60" rows="4">
+                   Enter Write Message.
+               </textarea>
+               <p>
+               <input type="submit" value="Write">
+               <input type="reset" value="Reset">
+               </p>
+           </form>
 
-         </table>
      </body>
    </html>

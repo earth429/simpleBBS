@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'active_record'
+require 'pp'
 
 set :environment, :production
 
@@ -23,9 +24,16 @@ post '/new' do
     else
         id_count.id += 1
     end
+    pp params[:name]
+    
     s = Write.new
     s.id = id_count.id
-    s.name = params[:name]
+    if params[:name] == ""
+        s.name = "名無しのJ科生"
+    else
+        s.name = params[:name]
+    end
+    pp s.name
     s.write_time = time
     s.message = params[:message]
     s.save
