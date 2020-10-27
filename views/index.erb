@@ -2,36 +2,40 @@
     <html>
        <head>
            <meta charset="utf-8" />
-           <title>simple BBS</title>
+           <title>simpleBBS</title>
        </head>
   
        <body>
            <h1>simpleBBS</h1>
 
+           <a id="top"></a>
+           <a href="#write">書き込み欄へ</a>
+
            <% @s.each do |a| %>
-               <form method="post" action="del">
+                <form method="post" action="del">
                    <p>
                    <%= a.id %>
                    <%= a.name %>
-                   <%= a.write_time %><br>
-                   <%= a.message %>
+                   <%= a.write_time %>
                    <input type="submit" value="Delete">
                    <input type="hidden" name="id" value="<%= a.id %>">
-                   <input type="hidden" name="_method" value="delete">
+                   <input type="hidden" name="_method" value="delete"><br>
+                   <%= a.message %>
                    </p>
-           </form>
+                </form>
            <% end %>
 
            <form method="post" action="new">
-               <input type="text" name="name">
-               <textarea required type="text" name="message" cols="60" rows="4">
-                   Enter Write Message.
-               </textarea>
+               <input type="text" placeholder="Name" name="name"> <br>
+               <textarea required type="text" name="message" rows="4" cols="60" placeholder="Enter Write Message."></textarea>
                <p>
                <input type="submit" value="Write">
                <input type="reset" value="Reset">
                </p>
            </form>
+
+            <a id="write"></a>
+            <a href="#top">書き込みを1から見る</a>
 
      </body>
    </html>
