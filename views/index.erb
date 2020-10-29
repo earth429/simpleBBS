@@ -9,10 +9,10 @@
            <h1>simpleBBS</h1>
 
            <a href="#write">書き込み欄へ</a>
-           <a id="top"></a>
 
            <% @s.each do |a| %>
                 <form method="post" action="del">
+                <a id="top"></a>
                    <p>
                    <%= a.id %>
                    <font color="green"><%= a.name %></font>
@@ -26,8 +26,10 @@
            <% end %>
 
            <form method="post" action="new">
-               <label for="name">&emsp;&emsp;&emsp;名前</label><input type="text" placeholder="200文字以内" name="name" maxlength=200> <br>
-               <label for="message">メッセージ</label><textarea required type="text" name="message" rows="4" cols="60" placeholder="500文字以内" maxlength=500></textarea>
+               <label for="name">名前</label><br>
+               <input type="text" placeholder="200文字以内" name="name" maxlength=200> <br>
+               <label for="message">メッセージ</label><br>
+               <textarea required type="text" name="message" rows="4" cols="60" placeholder="500文字以内" maxlength=500></textarea>
                <p>
                <input type="submit" value="Write">
                <input type="reset" value="Reset">
