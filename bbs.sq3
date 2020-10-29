@@ -1,6 +1,6 @@
 create table writes (
   id integer primary key,
-  name varchar(40),
-  write_time varchar(20) not null,
-  message varchar(500) not null
+  name text not null,
+  write_time text not null,
+  message text not null
 );

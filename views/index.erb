@@ -8,14 +8,14 @@
        <body>
            <h1>simpleBBS</h1>
 
-           <a id="top"></a>
            <a href="#write">書き込み欄へ</a>
+           <a id="top"></a>
 
            <% @s.each do |a| %>
                 <form method="post" action="del">
                    <p>
                    <%= a.id %>
-                   <%= a.name %>
+                   <font color="green"><%= a.name %></font>
                    <%= a.write_time %>
                    <input type="submit" value="Delete">
                    <input type="hidden" name="id" value="<%= a.id %>">
@@ -26,8 +26,8 @@
            <% end %>
 
            <form method="post" action="new">
-               <input type="text" placeholder="Name" name="name"> <br>
-               <textarea required type="text" name="message" rows="4" cols="60" placeholder="Enter Write Message."></textarea>
+               <label for="name">&emsp;&emsp;&emsp;名前</label><input type="text" placeholder="200文字以内" name="name" maxlength=200> <br>
+               <label for="message">メッセージ</label><textarea required type="text" name="message" rows="4" cols="60" placeholder="500文字以内" maxlength=500></textarea>
                <p>
                <input type="submit" value="Write">
                <input type="reset" value="Reset">
@@ -36,6 +36,8 @@
 
             <a id="write"></a>
             <a href="#top">書き込みを1から見る</a>
+
+            <p>まほうのことば:Cat Cat Cat</p>
 
      </body>
    </html>
