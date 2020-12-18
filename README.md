@@ -9,4 +9,5 @@ SQLite3 3.26.0
 ## 実行方法
 (Rubyの環境構築は省略)
 
+このリポジトリをそのままcloneしてもらうと実行できます。  
 $ bundle exec ruby simpleBBS.rb
